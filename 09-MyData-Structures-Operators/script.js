@@ -818,7 +818,7 @@ planesInLine(3);
 planesInLine(12);
 */
 // String Methods Practice
-
+/*
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -842,3 +842,18 @@ for (const flight of flights.split('+')) {
   )})`.padStart(45);
   console.log(output);
 }
+
+function toCamelCase(str) {
+  if (str) {
+    const strArr = str.replaceAll('-', '_').toLowerCase().split('_');
+    for (let i = 0; i < strArr.length; i++) {
+      const curPart = strArr[i];
+      if (i === 0 && str[0] !== str[0].toUpperCase()) continue;
+      strArr[i] = curPart.replace(curPart[0], curPart[0].toUpperCase());
+    }
+    return strArr.join('');
+  } else return '';
+}
+
+console.log(toCamelCase('The-Stealth-Warrior'));
+*/
