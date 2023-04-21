@@ -1,0 +1,6 @@
+# cache items
+.cache/
+.parcel-cache/
+# node items
+dist/
+node_modules/
