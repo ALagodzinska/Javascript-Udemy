@@ -1,6 +1,6 @@
 // Importing Module
 
-// Javascript Modules
+// LECTURE Javascript Modules
 /*
 Differences with scripts 
  In module 
@@ -16,7 +16,7 @@ Differences with scripts
 
  */
 
-// Exporting And Importing In ES6 Modules
+// LECTURE Exporting And Importing In ES6 Modules
 /*
 // import { addToCart, totalPrice as price, tq } from './shoppingCart.js';
 // addToCart('bread', 5);
@@ -47,7 +47,7 @@ add('apples', 2);
 console.log(cart);
 */
 
-// Top-level Await (ES2022)
+// LECTURE Top-level Await (ES2022)
 /*
 // await works outside of async function
 // works only in modules (in html add type-module to script)
@@ -77,7 +77,7 @@ console.log(lastPost);
 // lastPost.then(last => console.log(last));
 */
 
-// The Module Pattern
+// LECTURE The Module Pattern
 /*
 // immediately invoked function
 const ShoppingCart2 = (function () {
@@ -112,7 +112,7 @@ console.log(ShoppingCart2.shippingCost); // undefined
 // closures allow access to all properties when it was created
 */
 
-// CommonJS Modules
+// LECTURE CommonJS Modules
 /*
 // have been used in node js
 // node js is way to run js on web server outside of browser
@@ -130,7 +130,7 @@ export.addToCart = function (product, quantity) {
   const {addToCart} = require("./shoppingCart.js")
   */
 
-// Introduction to NPM
+// LECTURE Introduction to NPM
 
 // import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
 
@@ -139,7 +139,7 @@ import cloneDeep from 'lodash-es';
 const state = {
   cart: [
     { product: 'bread', qty: 5 },
-    { product: 'bread', qty: 5 },
+    { product: 'bread', qty: 1 },
   ],
   user: { loggedIn: true },
 };
@@ -157,7 +157,7 @@ console.log(stateClone);
 // clone will not change
 console.log(stateDeepClone);
 
-// Bundling With Parcel and NPM Scripts
+// LECTURE Bundling With Parcel and NPM Scripts
 
 // parcel is a dev dependency
 
@@ -168,3 +168,32 @@ console.log(stateDeepClone);
 if (module.hot) {
   module.hot.accept();
 }
+
+// LECTURE Configuring Babel And Polyfilling
+
+// dont work is not supported
+class Person {
+  greeting = 'Hey';
+
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting}, ${this.name}`);
+  }
+}
+const jonas = new Person('Jonas');
+
+// don't work
+console.log('Jonas' ?? null);
+
+// ES6 features like find and Promise are not converted
+console.log(state.cart.find(el => el.qty >= 2));
+
+Promise.resolve('Test').then(x => console.log(x));
+
+import 'core-js/stable';
+// pollyfilling find and promise
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/array/promise';
+
+// Pollyfilling async functions
+import 'regenerator-runtime/runtime';
